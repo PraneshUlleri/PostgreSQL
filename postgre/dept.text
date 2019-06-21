@@ -1,0 +1,27 @@
+create table department
+(
+dept_name varchar(20),
+building varchar(15),
+budget numeric(12,2),
+primary key (dept_name)
+);
+
+create table course
+(
+course_id varchar(7),
+title varchar(50),
+dept_name numeric(20),
+credits numeric(2,0),
+primary key (course_id),
+foreign key(dept_name) references department
+);
+
+create table instructor
+(
+ID varchar(5),
+name varchar(20)not null,
+dept_name numeric(20),
+salary numeric(8,2),
+primary key (ID),
+foreign key(dept_name) references department
+);
