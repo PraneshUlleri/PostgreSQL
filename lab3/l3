@@ -1,0 +1,68 @@
+﻿create table Cust (
+custid varchar(3),
+lname varchar(15),
+fname varchar(15),
+area varchar(2),
+phoneno numeric(8,0),
+primary key(custid)
+);
+create table Movie(
+mvno numeric(2,0),
+title varchar(25),
+type varchar(10),
+star varchar(25),
+price numeric(8,2),
+primary key(mvno) 
+);
+create table invoice(
+invno varchar(3),
+mvno numeric (2),
+custid varchar(3),
+issuedate DATE,
+retdate DATE,
+primary key(invno),
+foreign key (mvno) references Movie,
+foreign key (custid) references Cust
+);
+
+insert into Movie(mvno, title, type, star, price) values 
+('1','Bloody Vengeance','action','Jackie Chan','100.00'),
+('2','The Firm','thriller','Tom Cruise','200.00'),
+('3','Pretty Woman','romance','Richard Gere','150.00'),
+('4','Home Alone','Comedy','Macaulay Culkin','150.55'),
+('5','The Fugitive','Thriller','Harrison Ford ','200.00'),
+('6','Coma','Suspense','Michael Douglas','100.00'),
+('7','Dracula','Horror','Gary Oldman','150.25'),
+('8','Quick Change','Comedy','Bill Muray','100.00'),
+('9','Gone in the wind','Drama','Clarke Gable ','200.00'),
+('10','Carry on Doctor ','Comedy','leslie Philips','100.00');
+
+insert into Cust values
+('A01','Bayross','Ivan','sa','6125467'), 
+('A02','Saitwal','Vandana','mu','5560379'),
+('A03','Jaguste','Pramada','du','4563891'),
+('A04','Navindgi','Basu','ba','6125401'),
+('A05','Sreedhar','Ravi','va',NULL), 
+('A06',NULL,'Rukmini','gh','5125274');
+
+
+
+insert into invoice(invno,mvno,custid,issuedate,retdate) values
+
+('i01','4','A01',DATE '23-jul-2012',DATE '25-jul-2012'),
+('i02','3','A02',DATE '12-aug-2012',DATE '15-aug-2012'),
+('i03','1','A02',DATE '15-aug-2012',DATE '18-aug-2012'),
+('i04','6','A03',DATE '10-sep-2012',DATE '13-sep-2012'),
+('i05','7','A04',DATE '05-aug-2012',DATE '08-aug-2012'),
+('i06','2','A06',DATE '18-sep-2012',DATE '20-sep-2012' ),
+('i07','9','A05',DATE '07-jul-2012',DATE '10-jul-2012' ),
+('i08','9','A01',DATE '11-aug-2012',DATE '14-aug-2012' ),
+('i09','5','A03',DATE '06-jul-2012',DATE '09-jul-2012' ),
+('i10','8','A06',DATE '03-sep-2012',DATE '06-sep-2012' );
+
+select (fname , lname) from Cust;
+select *from cust;
+select fname, area from Cust;
+select title from Movie;
+
+  
